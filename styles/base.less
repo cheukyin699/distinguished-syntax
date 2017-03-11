@@ -61,7 +61,12 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 }
 
 .syntax--comment {
-    color: #767676;
+    color: @dst-gray;
+    font-style: italic;
+
+    &.syntax--punctuation {
+        color: @dst-bg_2;
+    }
 }
 
 .syntax--entity {
@@ -75,75 +80,34 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 }
 
 .syntax--keyword {
-    color: #d7d787;
+    color: @dst-blue;
     font-weight: bold;
-
-    &.syntax--operator {
-        color: @white;
-    }
-
-    &.syntax--control {
-    }
-
-    &.syntax--import,
-    &.syntax--include {
-        color: #d7875f;
-    }
-
-    &.syntax--other.syntax--special-method {
-        color: @blue;
-    }
-
-    &.syntax--other.syntax--unit {
-        color: @orange;
-    }
 }
 
 .syntax--storage {
     &.syntax--type {
-        color: #5f87af;
+        color: @dst-yellow_1;
+        font-weight: bold;
     }
 
-    &.syntax--class {
-        color: #ffff00;
-    }
-
-    &.syntax--function {
-        color: #ffff00;
+    &.syntax--modifier {
+        color: @dst-blue;
+        font-weight: bold;
     }
 }
 
 .syntax--constant {
-    color: #af875f;
+    color: @dst-yellow_1;
     font-weight: bold;
 
-    &.syntax--character.syntax--escape {
-        color: #afd787;
-        font-weight: normal;
-    }
-
     &.syntax--numeric {
-        color: #d7875f;
-        font-weight: normal;
-    }
-
-    &.syntax--other.syntax--color {
-        color: #ff00ff;
-    }
-
-    &.syntax--other.syntax--symbol {
-        color: @green;
-    }
-
-    &.syntax--language {
-        color: #ff00ff;
         font-weight: normal;
     }
 }
 
 .syntax--variable {
-    color: #5f8787;
-    font-weight: bold;
+    color: @dst-blue_1;
+    font-style: italic;
 
     &.syntax--interpolation {
         color: darken(@red, 10%);
@@ -211,7 +175,8 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     }
 
     &.syntax--function  {
-        color: #d7af5f;
+        color: @dst-red;
+        font-weight: bold;
 
         &.syntax--any-method {
             // color: @blue;
@@ -230,8 +195,15 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 }
 
 .syntax--entity {
-    &.syntax--name.syntax--class, &.syntax--name.syntax--type.syntax--class {
-        color: @light-orange;
+    &.syntax--function {
+        color: @dst-red;
+    }
+
+    &.syntax--class,
+    &.syntax--inherited-class,
+    &.syntax--name.syntax--type.syntax--class {
+        color: @dst-yellow_1;
+        font-weight: bold;
     }
 
     &.syntax--name.syntax--section {
@@ -302,8 +274,9 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
         font-style: italic;
     }
 
-    &.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
-        color: @blue;
+    &.syntax--heading {
+        color: @dst-blue;
+        font-weight: bold;
     }
 
     &.syntax--inserted {
@@ -319,13 +292,6 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     }
 
     &.syntax--raw.syntax--inline {
-        color: @green;
-    }
-}
-
-.syntax--source.syntax--gfm .syntax--markup {
-    -webkit-font-smoothing: auto;
-    &.syntax--heading {
         color: @green;
     }
 }
